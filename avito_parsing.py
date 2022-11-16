@@ -21,6 +21,7 @@ async def main(query: str, page_n: int) -> None:
             url = item.find('a').get_attribute_list('href')
             price = item.find('span',
                               attrs={'data-marker': 'item-price'}).get_text()
+            price = price.replace(' ', '')
             if url:
                 total_url = sample + url[0]
                 print(f'Title: {title}')
